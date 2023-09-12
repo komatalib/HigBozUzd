@@ -21,7 +21,7 @@ namespace HigBozUzd
 
         public PhoneBook()
         {
-            //editBtn = false;
+
             InitializeComponent();
             LoadData();
         }
@@ -54,7 +54,7 @@ namespace HigBozUzd
             }
         }
 
-        //MARK ROW
+        //MARK ROW, GET CONTACT ID
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -74,10 +74,14 @@ namespace HigBozUzd
         //BUTTONS ACTION
         private void EditButton_Click(object sender, EventArgs e)
         {
-            editBtn = true;
+            //editBtn = true;
             
-            using (AddDialogForm dialogForm = new AddDialogForm(contactId, editBtn))
+            using (AddDialogForm dialogForm = new AddDialogForm())
             {
+                dialogForm.contactId = contactId;
+                dialogForm.editBtn = true;
+                dialogForm.PrepareForm();
+
                 if (dialogForm.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();
@@ -91,10 +95,14 @@ namespace HigBozUzd
                 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            editBtn = false;
+            
 
-            using (AddDialogForm dialogForm = new AddDialogForm(contactId, editBtn))
+            using (AddDialogForm dialogForm = new AddDialogForm())
             {
+                dialogForm.contactId = contactId;
+                dialogForm.editBtn = false;
+                dialogForm.PrepareForm();
+
                 if (dialogForm.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();

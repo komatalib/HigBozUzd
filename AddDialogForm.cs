@@ -21,19 +21,22 @@ namespace HigBozUzd
         public DateTime birthDate { get; set; }
         public string contactId { get; set; }
         public bool editBtn { get; set; }
-        public AddDialogForm(string contactId, bool editBtn)
-        {            
-            this.editBtn = editBtn;
-            this.contactId = contactId;
+
+        public AddDialogForm()
+        {
 
             InitializeComponent();
-            
+        }
+
+        public void PrepareForm()
+        {
             if (editBtn)
             {
                 LoadContactData(contactId);
                 label1.Text = "Update Contact";
-            }            
+            }
         }
+
 
         //LOAD DB
         public void LoadContactData(string contactID)
