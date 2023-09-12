@@ -24,11 +24,10 @@ namespace HigBozUzd
 
         public AddDialogForm()
         {
-
             InitializeComponent();
         }
 
-        public void PrepareForm()
+        public void CheckEditButton()
         {
             if (editBtn)
             {

@@ -46,18 +46,17 @@ namespace HigBozUzd
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                SqlDataAdapter dataAdap = new SqlDataAdapter(cmd);
+                DataTable dataTbl = new DataTable();
+                dataAdap.Fill(dataTbl);
 
-                dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = dataTbl;
             }
         }
 
         //MARK ROW, GET CONTACT ID
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 dataGridView1.Rows[e.RowIndex].Selected = true;
@@ -74,42 +73,30 @@ namespace HigBozUzd
         //BUTTONS ACTION
         private void EditButton_Click(object sender, EventArgs e)
         {
-            //editBtn = true;
-            
             using (AddDialogForm dialogForm = new AddDialogForm())
             {
                 dialogForm.contactId = contactId;
                 dialogForm.editBtn = true;
-                dialogForm.PrepareForm();
+                dialogForm.CheckEditButton();
 
                 if (dialogForm.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();
-                }
-                else
-                {
-                    
                 }
             }
         }
                 
         private void AddButton_Click(object sender, EventArgs e)
-        {
-            
-
+        {           
             using (AddDialogForm dialogForm = new AddDialogForm())
             {
                 dialogForm.contactId = contactId;
                 dialogForm.editBtn = false;
-                dialogForm.PrepareForm();
+                dialogForm.CheckEditButton();
 
                 if (dialogForm.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();
-                }
-                else
-                {
-                    
                 }
             }
         }
