@@ -13,7 +13,6 @@ namespace HigBozUzd
 {
     public partial class PhoneBook : Form
     {
-
         private SqlConnection sConn = new SqlConnection(@"Data Source=DESKTOP-MRNEBE4\SQLSERVER;Initial Catalog=PhoneBook;Integrated Security=True");
                 
         public string contactId { get; set; }
@@ -21,7 +20,6 @@ namespace HigBozUzd
 
         public PhoneBook()
         {
-
             InitializeComponent();
             LoadData();
         }

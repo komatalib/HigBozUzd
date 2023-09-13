@@ -16,6 +16,10 @@ namespace HigBozUzd
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DB db = new DB();
+            db.InitializeDatabase();
+
             Application.Run(new PhoneBook());
         }
     }
