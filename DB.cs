@@ -12,7 +12,7 @@ namespace HigBozUzd
     {
         public void InitializeDatabase()
         {
-            string script = File.ReadAllText(@"C:\Users\denis\Desktop\Uzduotis\HigBozUzd\phoneBookScript.sql");
+            string script = File.ReadAllText(@"phoneBookScript.sql");
 
             using (SqlConnection sConn = new SqlConnection(@"Data Source=DESKTOP-MRNEBE4\SQLSERVER;Initial Catalog=PhoneBook;Integrated Security=True"))
             {
